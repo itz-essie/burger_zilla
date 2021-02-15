@@ -5,17 +5,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   
     // UPDATE
-    const changeDevouredBtn = document.querySelectorAll('.change-devoured');
+    const changeDevouredBtns = document.querySelectorAll('.change-devoured');
   
     // Set up the event listener for the create button
-    if (changeDevouredBtn) {
-      changeDevouredBtn.forEach((button) => {
+    if (changeDevouredBtns) {
+      changeDevouredBtns.forEach((button) => {
         button.addEventListener('click', (e) => {
           // Grabs the id of the element that goes by the name, "id"
           const id = e.target.getAttribute('data-id');
           const newDevoured = e.target.getAttribute('data-newDevoured');
   
-          const newEatenState = {
+          const newDevouredState = {
             devoured: newDevoured,
           };
   
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             },
   
             // make sure to serialize the JSON body
-            body: JSON.stringify(newEatenState),
+            body: JSON.stringify(newDevouredState),
           }).then((response) => {
             // Check that the response is all good
             // Reload the page so the user can see the new quote

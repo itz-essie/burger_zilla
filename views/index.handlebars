@@ -1,26 +1,66 @@
-<h1>Waiting to be Devoured</h1>
+<div class="container">
+  <h1>Burger-Zilla</h1> <img src="public/assets/img/burger.jpeg" alt="juicy burger" class="center"></h1>
+  <p class="centertext">Welcome to Burger-Zilla, where the burgers are out of this world!</p>
+</div>
 
-<h2></h2>
 
-<ul>
-  {{#each burgers}}
-  {{#unless devoured}}
-  {{> burgers/burger-block devoured=true}}
-  {{/unless}}
-  {{/each}}
-</ul>
+<div class="col-md-12">
+  <div class="card border border-dark">
+    <div class="card-header bg-light text-black">
+      How can I help you today?
+    </div>
+    <h2>Add a Burger</h2>
+    <div class="card-body">
+      <form class="create-form">
+        <div class="form-group">
+          <label for="burg">Place order here:</label>
+          <input type="text" class="form-control" id="burg" name="burger_name" placeholder="">
+        </div>
+        <button class="btn btn-dark" type="submit">Place order <i class="fa fa-bell-o" aria-hidden="true"></i> </button>
+      </form>
+    </div>
+  </div>
+</div>
 
-<h2>Devoured it!</h2>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card border border-light">
+      <div class="card-header bg-dark text-white">
+        Burgers
+      </div>
+      <!--Div to hold burgers that have not been devoured yet-->
+      <div class="card-body">
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=false}}
+        {{/unless}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
 
-<ul>
-  {{#each burgers}}
-  {{#if devoured}}
-  {{> burgers/burger-block devoured=false}}
-  {{/if}}
-  {{/each}}
-</ul>
+  <div class="col-md-6">
+    <div class="card border border-light">
+        <div class="card-header bg-dark text-white">
+          Devoured burgers
+        </div>
+        <!--When a burger has been devoured, put burger here-->
+        <div class="card-body">
+          {{#each burgers}}
+          {{#if devoured}}
+          {{> burgers/burger-block devoured=true}}
+          {{/if}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+</div>
 
-<h2>Add a Burger</h2>
+
+
+
+
+{{!--
 <form id="create-form">
 
   <div class="form-group">
@@ -35,4 +75,4 @@
   </div>
 
   <button type="submit">Add a Burger </button>
-</form>
+</form> --}}
