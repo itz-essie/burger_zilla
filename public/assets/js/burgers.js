@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         console.log("I cliked a button")
         // Grabs the id of the element that goes by the name, "id"
         const id = e.target.getAttribute('data-id');
-        const newDevoured = e.target.getAttribute('data-newdevoured');
+        const newDevoured = true;
 
         const newDevouredState = {
           devoured: newDevoured,

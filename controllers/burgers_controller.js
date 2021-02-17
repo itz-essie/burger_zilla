@@ -20,11 +20,9 @@ router.get('/', (req, res) => {
   router.post('/api/burgers', (req, res) => {
     console.log("This works!")
     console.log(req.body);
-    //coming from sql
-    //Second part: js front end
-    //public and views is front-end
+    
     burger.create(['burger_name', 'devoured'], [req.body.name, false], (result) => {
-      // Send back the ID of the new quote
+      // Send back the ID of the new burger
       res.json({ id: result.insertId });
     });
   });
